@@ -1,0 +1,119 @@
+[
+  {
+    "Background": "Downtown",
+    "Banana Base": "Green",
+    "Mouth": "Grrrr",
+    "Eyes": "Cyberpunk",
+    "Head Gear": "Dood",
+    "tokenId": 0,
+    "imageIPFS": "Qme4bfYh3jnPFvLwLYFxWYkSQoym72M5ZgGRZzqiTPuLuK"
+  },
+  {
+    "Background": "Mint",
+    "Banana Base": "Iridescent",
+    "Mouth": "Lollipop",
+    "Eyes": "Bored",
+    "Head Gear": "Spike",
+    "tokenId": 1,
+    "imageIPFS": "QmYUyEpE8k4QEzThxfmnP2PpdvMzDpXnvXFRoLwkY3NNkD"
+  },
+  {
+    "Background": "Grey",
+    "Banana Base": "Yellow",
+    "Mouth": "Whoops",
+    "Eyes": "Leonardo",
+    "Head Gear": "Mullet",
+    "tokenId": 2,
+    "imageIPFS": "QmYbmUnMc1CX3gDPWtQjEpfb4VsFRD6bpK4h4Rk8vF8GLE"
+  },
+  {
+    "Background": "Lilac",
+    "Banana Base": "Yellow",
+    "Mouth": "Smirk",
+    "Eyes": "Perplexed",
+    "Head Gear": "Cotton Candy",
+    "tokenId": 3,
+    "imageIPFS": "QmVP7mhRjMC7X5s336GndQhaduUx7vsDb25TGSZHLH4axN"
+  },
+  {
+    "Background": "Sherbert",
+    "Banana Base": "Yellow",
+    "Mouth": "Cherry Lips",
+    "Eyes": "Trippy",
+    "Head Gear": "Toupet",
+    "tokenId": 4,
+    "imageIPFS": "QmQuuPjeUzQx8nbH3znwZtseEP9ozCB4GxTmNteSkrTHXN"
+  },
+  {
+    "Background": "Lilac",
+    "Banana Base": "Blue",
+    "Mouth": "Toothless",
+    "Eyes": "Trippy",
+    "Head Gear": "Ahoy",
+    "tokenId": 5,
+    "imageIPFS": "QmSwsSCPBaESQrUG8Jmw7yy23QLNtrh7JcnUUzzTcGX2Hp"
+  },
+  {
+    "Background": "Grey",
+    "Banana Base": "Pride",
+    "Mouth": "Lollipop",
+    "Eyes": "Cyberpunk",
+    "Head Gear": "Mullet",
+    "tokenId": 6,
+    "imageIPFS": "QmcHVPmW88TWoSQBPXQobPVoYFcmQiYoJxX9PrhXzeXR9a"
+  },
+  {
+    "Background": "Purple Haze",
+    "Banana Base": "Red",
+    "Mouth": "Meh",
+    "Eyes": "Eye-patch",
+    "Head Gear": "Sidewinder",
+    "tokenId": 7,
+    "imageIPFS": "QmUnWbHoT47r6rEYKJRvXFweY2kHGi9BWThNyW7pvz9Umu"
+  },
+  {
+    "Background": "Mint",
+    "Banana Base": "Red",
+    "Mouth": "Sulking",
+    "Eyes": "Bored",
+    "Head Gear": "Bowl",
+    "tokenId": 8,
+    "imageIPFS": "QmVv86eZW7cHTn5ekvX13y8FMkEkhfYfznRG4QHzv4A2FE"
+  },
+  {
+    "Background": "Mint",
+    "Banana Base": "Blue",
+    "Mouth": "Beatnik",
+    "Eyes": "Bored",
+    "Head Gear": "Bowl",
+    "tokenId": 9,
+    "imageIPFS": "QmSa3F9HExnnHZC9YtKiP2SdRaBAfN8ELNoFCxe89QLRQN"
+  },
+  {
+    "Background": "Mint",
+    "Banana Base": "Blue",
+    "Mouth": "Happy",
+    "Eyes": "Pixel",
+    "Head Gear": "Goofy",
+    "tokenId": 10,
+    "imageIPFS": "QmQxAMf5SG8oF7fMiv1SWvQhpfY2UmWZMFfjhGkyPFZ3e2"
+  },
+  {
+    "Background": "Lilac",
+    "Banana Base": "Blue",
+    "Mouth": "Tongue Ring",
+    "Eyes": "Trippy",
+    "Head Gear": "Toupet",
+    "tokenId": 11,
+    "imageIPFS": "QmYxVxJPzHbUefRvBLbW39dy5hq1U9dyMhwv2u3xLucAXc"
+  },
+  {
+    "Background": "Amber",
+    "Banana Base": "Yellow",
+    "Mouth": "Cherry Lips",
+    "Eyes": "Cyclops",
+    "Head Gear": "DJ",
+    "tokenId": 100000,
+    "imageIPFS": "QmTvSLwXeEGZEYPbDt4GxxYSZR5J4H1E4naXWX38m4LdjT"
+  }
+]
