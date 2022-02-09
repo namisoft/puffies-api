@@ -46,6 +46,7 @@ container.registerInstance("Web3", new Web3(chainConfig.rpcUrl));
 // Setup and spin-up a HTTP server -----------------------------------------------------------
 import {DataController} from "./DataController";
 import path from "path";
+import {CryptoPuffiesService} from "./CryptoPuffiesService";
 
 const app: express.Express = express();
 const server: http.Server = new http.Server(app);
@@ -90,6 +91,8 @@ app.use('/images', express.static(path.join(__dirname, ".././public/images"), {
     })*/
 }));
 
+// start sync data routine
+container.resolve(CryptoPuffiesService).syncData();
 
 const dataCtrl = container.resolve(DataController);
 app.get("/api/token-data/:id", dataCtrl.getTokenData);

@@ -11,5 +11,16 @@ export class CryptoPuffies extends ContractBase {
                 .catch(_ => {
                     resolve(null)
                 })
-        })
+        });
+
+    readonly totalSupply = () => new Promise<number>(resolve => {
+        this.underlyingContract.methods["totalSupply"]()
+            .call({})
+            .then(r => {
+                resolve(r["0"].valueOf() as number)
+            })
+            .catch(_ => {
+                resolve(0)
+            })
+    });
 }
