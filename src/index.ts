@@ -7,6 +7,7 @@ import {ChainConfigAvaxTest} from "./config/chain-config-avax-test";
 import {ChainConfigAvaxMain} from "./config/chain-config-avax-main";
 import {ChainConfig} from "./config/chain-config";
 import {CryptoPuffiesDataJson} from "./CryptoPuffiesDataJson";
+import {TokenTracker} from "./TokenTracker";
 
 const bodyParser = require('body-parser');
 
@@ -14,6 +15,16 @@ const Web3 = require('web3');
 
 const argv = require('minimist')(process.argv.slice(2));
 
+// read maxMintedTokenId from commandline
+let maxMintedTokenId = -1;
+if(argv['maxMintedTokenId']){
+    maxMintedTokenId = Number(argv['maxMintedTokenId']);
+    if(isNaN(maxMintedTokenId)){
+        console.error(`Invalid maxMintedTokenId: ${maxMintedTokenId}`);
+        process.exit(1);
+    }
+}
+TokenTracker.maxMintedId = maxMintedTokenId;
 
 // Chain config mapping
 const ChainConfigMap: { [cfgName: string]: ChainConfig } = {
@@ -34,6 +45,7 @@ container.registerInstance("Web3", new Web3(chainConfig.rpcUrl));
 
 // Setup and spin-up a HTTP server -----------------------------------------------------------
 import {DataController} from "./DataController";
+import path from "path";
 
 const app: express.Express = express();
 const server: http.Server = new http.Server(app);
@@ -46,8 +58,41 @@ app.use(function (req, res, next) {
     next();
 });
 
+// image filtering: only returning image for minted token
+app.use('/images/:file', (req, res, next) => {
+    const fileName = path.basename(req.originalUrl);
+    const fileExt = path.extname(req.originalUrl);
+    // extract tokenID from file name: 5.jpg <--> tokenId = 5
+    const tokenId = Number(path.basename(fileName, fileExt));
+    if (isNaN(tokenId) || tokenId < 0) {
+        res
+            .status(404)
+            .setHeader("Cache-Control", "no-cache")
+            .setHeader("max-age", 0)
+            .send("Not found");
+        return;
+    }
+    if (tokenId <= TokenTracker.maxMintedId) {
+        next()
+    } else {
+        res
+            .status(404)
+            .setHeader("Cache-Control", "no-cache")
+            .setHeader("max-age", 0)
+            .send("Not found");
+    }
+});
+// serve images as static resource
+app.use('/images', express.static(path.join(__dirname, ".././public/images"), {
+/*    setHeaders: (res => {
+        res.setHeader("Cache-Control", "no-cache");
+        res.setHeader("max-age", 0);
+    })*/
+}));
+
+
 const dataCtrl = container.resolve(DataController);
-app.get("/puffies/token-data/:id", dataCtrl.getTokenData);
+app.get("/api/token-data/:id", dataCtrl.getTokenData);
 
 server.listen(AppConfig.HttpPort);
 

@@ -2,7 +2,7 @@ import {CryptoPuffiesData, PuffiesTokenMetadata} from "./CryptoPuffiesData";
 import path from "path";
 import fs from "fs-extra";
 
-const DataFileName = path.resolve(__dirname, "../data", "puffies-metadata.json")
+const DataFileName = path.resolve(__dirname, "../data", "puffies.json")
 
 export class CryptoPuffiesDataJson implements CryptoPuffiesData{
     private readonly metadata: PuffiesTokenMetadata[];

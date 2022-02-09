@@ -1,9 +1,11 @@
 export type PuffiesTokenMetadata = {
     tokenId: number;
-    Background: string;
-    Mouth: string;
-    Eyes: string;
-    imageIPFS: string;
+    external_url: string;
+    name: string;
+    description: string;
+    type: string;
+    image: string;
+    attributes: any[]
 }
 
 export interface CryptoPuffiesData {

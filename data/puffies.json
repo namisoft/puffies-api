@@ -1,0 +1,116 @@
+[
+  {
+    "external_url": "https://penguinfinance.org/",
+    "name": "Test Puffy #0",
+    "description": "TEST ONLY",
+    "type": "ERC721",
+    "image": "0.jpg",
+    "tokenId": 0,
+    "attributes": [
+      {
+        "trait_type": "Background",
+        "value": "Red"
+      },
+      {
+        "trait_type": "Color",
+        "value": "Blue"
+      },
+      {
+        "trait_type": "Face",
+        "value": "Reptile"
+      },
+      {
+        "trait_type": "Hairstyle",
+        "value": "Bart"
+      },
+      {
+        "trait_type": "Hat",
+        "value": "None"
+      },
+      {
+        "trait_type": "Tail",
+        "value": "Devil"
+      },
+      {
+        "trait_type": "Accessory",
+        "value": "None"
+      }
+    ]
+  },
+  {
+    "external_url": "https://penguinfinance.org/",
+    "name": "Test Puffy #1",
+    "description": "TEST ONLY",
+    "type": "ERC721",
+    "image": "1.jpg",
+    "tokenId": 1,
+    "attributes": [
+      {
+        "trait_type": "Background",
+        "value": "Red"
+      },
+      {
+        "trait_type": "Color",
+        "value": "Blue"
+      },
+      {
+        "trait_type": "Face",
+        "value": "Reptile"
+      },
+      {
+        "trait_type": "Hairstyle",
+        "value": "Bart"
+      },
+      {
+        "trait_type": "Hat",
+        "value": "None"
+      },
+      {
+        "trait_type": "Tail",
+        "value": "Devil"
+      },
+      {
+        "trait_type": "Accessory",
+        "value": "None"
+      }
+    ]
+  },
+  {
+    "external_url": "https://penguinfinance.org/",
+    "name": "Test Puffy #2",
+    "description": "TEST ONLY",
+    "type": "ERC721",
+    "image": "2.jpg",
+    "tokenId": 2,
+    "attributes": [
+      {
+        "trait_type": "Background",
+        "value": "Red"
+      },
+      {
+        "trait_type": "Color",
+        "value": "Blue"
+      },
+      {
+        "trait_type": "Face",
+        "value": "Reptile"
+      },
+      {
+        "trait_type": "Hairstyle",
+        "value": "Bart"
+      },
+      {
+        "trait_type": "Hat",
+        "value": "None"
+      },
+      {
+        "trait_type": "Tail",
+        "value": "Devil"
+      },
+      {
+        "trait_type": "Accessory",
+        "value": "None"
+      }
+    ]
+  }
+]
