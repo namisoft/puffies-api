@@ -59,37 +59,47 @@ app.use(function (req, res, next) {
     next();
 });
 
+
 // image filtering: only returning image for minted token
-app.use('/images/:file', (req, res, next) => {
-    const fileName = path.basename(req.originalUrl);
-    const fileExt = path.extname(req.originalUrl);
-    // extract tokenID from file name: 5.jpg <--> tokenId = 5
-    const tokenId = Number(path.basename(fileName, fileExt));
-    if (isNaN(tokenId) || tokenId < 0) {
-        res
-            .status(404)
-            .setHeader("Cache-Control", "no-cache")
-            .setHeader("max-age", 0)
-            .send("Not found");
-        return;
-    }
-    if (tokenId <= TokenTracker.maxMintedId) {
-        next()
-    } else {
-        res
-            .status(404)
-            .setHeader("Cache-Control", "no-cache")
-            .setHeader("max-age", 0)
-            .send("Not found");
-    }
-});
-// serve images as static resource
+const filterImages = (urlPath) => {
+    app.use(urlPath, (req, res, next) => {
+        const fileName = path.basename(req.originalUrl);
+        const fileExt = path.extname(req.originalUrl);
+        // extract tokenID from file name: 5.jpg <--> tokenId = 5
+        const tokenId = Number(path.basename(fileName, fileExt));
+        if (isNaN(tokenId) || tokenId < 0) {
+            res
+                .status(404)
+                .setHeader("Cache-Control", "no-cache")
+                .setHeader("max-age", 0)
+                .send("Not found");
+            return;
+        }
+        if (tokenId <= TokenTracker.maxMintedId) {
+            next()
+        } else {
+            res
+                .status(404)
+                .setHeader("Cache-Control", "no-cache")
+                .setHeader("max-age", 0)
+                .send("Not found");
+        }
+    });
+}
+
+
+// serve standard images
+filterImages('/images/:file');
 app.use('/images', express.static(path.join(__dirname, ".././public/images"), {
 /*    setHeaders: (res => {
         res.setHeader("Cache-Control", "no-cache");
         res.setHeader("max-age", 0);
     })*/
 }));
+// serve non-background images (for hatching animation)
+filterImages('/hatch-images/:file');
+app.use('/hatch-images', express.static(path.join(__dirname, ".././public/hatch-images")));
+
 
 // start sync data routine
 container.resolve(CryptoPuffiesService).syncData();
