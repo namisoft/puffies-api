@@ -17,8 +17,8 @@ for(const it of traitsData) {
     ];
     outputData.push({
         external_url: "https://penguinfinance.org/",
-        name: `Test Puffy #${tokenId}`,
-        description: "TEST ONLY",
+        name: `PUFFY #${tokenId}`,
+        description: `PUFFY #${tokenId}`,
         type: "ERC721",
         image: `${tokenId}.jpg`,
         tokenId: tokenId,
