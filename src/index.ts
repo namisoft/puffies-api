@@ -15,6 +15,54 @@ const Web3 = require('web3');
 
 const argv = require('minimist')(process.argv.slice(2));
 
+// Setup logger
+import * as logform from "logform";
+
+const {createLogger, format, transports} = require('winston');
+const {combine, timestamp, label, printf} = format;
+require('winston-daily-rotate-file');
+
+const logFormatter = printf((info: logform.TransformableInfo & { timestamp: string }) => {
+    return `[${info.timestamp}]${info.message}`;
+});
+
+const logger = createLogger({
+    format: combine(
+        label({label: 'PuffiesAPI'}),
+        timestamp(),
+        logFormatter
+    ),
+    transports: [
+        new transports.Console(),
+        new (transports.DailyRotateFile)({
+            filename: 'puffies-api-err-%DATE%.log',
+            dirname: 'logs',
+            datePattern: 'YYYY-MM-DD',
+            zippedArchive: true,
+            level: 'error',
+            maxSize: '20m',
+            maxFiles: '180d'
+        }),
+        new (transports.DailyRotateFile)({
+            filename: 'puffies-api-%DATE%.log',
+            dirname: 'logs',
+            datePattern: 'YYYY-MM-DD',
+            zippedArchive: true,
+            maxSize: '20m',
+            maxFiles: '180d'
+        })
+    ]
+});
+
+console.log = function () {
+    logger.info.apply(null, arguments);
+};
+console.error = function () {
+    logger.error.apply(null, arguments);
+};
+
+
+
 // read maxMintedTokenId from commandline
 let maxMintedTokenId = -1;
 if(argv['maxMintedTokenId']){
