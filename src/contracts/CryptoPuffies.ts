@@ -17,7 +17,7 @@ export class CryptoPuffies extends ContractBase {
         this.underlyingContract.methods["totalSupply"]()
             .call({})
             .then(r => {
-                resolve(r["0"].valueOf() as number)
+                resolve(r.valueOf() as number)
             })
             .catch(_ => {
                 resolve(0)
