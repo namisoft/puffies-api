@@ -67,7 +67,7 @@ export class CryptoPuffiesService {
                     return this._syncDataRoutine().then().catch()
                 })
             },
-            1000
+            500
         );
     }
 
