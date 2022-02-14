@@ -7,7 +7,7 @@ export const ChainConfigAvaxMain: ChainConfig = {
     symbol: "AVAX",
     explorerUrl: "https://cchain.explorer.avax.network",
     CryptoPuffies: {
-        address: "0x3cc3717Ce6C3A76D8032c54aC16924Cb338884e4",
+        address: "0x6efd0C1936349CA2514BB5e3a13db65A5B4E36C8",
         abi: ABIs.CryptoPuffies,
     },
 }
