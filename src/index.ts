@@ -115,7 +115,7 @@ const filterImages = (urlPath) => {
         const fileExt = path.extname(req.originalUrl);
         // extract tokenID from file name: 5.jpg <--> tokenId = 5
         const tokenId = Number(path.basename(fileName, fileExt));
-        if (isNaN(tokenId) || tokenId < 0) {
+        if (isNaN(tokenId) || tokenId < 0 || (fileExt !== ".jpg" && fileExt !== ".png")) {
             res
                 .status(404)
                 .setHeader("Cache-Control", "no-cache")
@@ -145,8 +145,8 @@ app.use('/images', express.static(path.join(__dirname, ".././public/images"), {
     })*/
 }));
 // serve non-background images (for hatching animation)
-filterImages('/hatch-images/:file');
-app.use('/hatch-images', express.static(path.join(__dirname, ".././public/hatch-images")));
+// filterImages('/hatch-images/:file');
+// app.use('/hatch-images', express.static(path.join(__dirname, ".././public/hatch-images")));
 
 
 // start sync data routine
